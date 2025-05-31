@@ -1,0 +1,13 @@
+CREATE DATABASE StudentManagement;
+USE StudentManagement;
+CREATE TABLE Students (StudentID INT AUTO_INCREMENT PRIMARY KEY, Name VARCHAR(50), Gender VARCHAR(1), Age INT, Grade VARCHAR(10), MathScore INT, ScienceScore INT, EnglishScore INT);
+INSERT INTO Students (Name, Gender, Age, Grade, MathScore, ScienceScore, EnglishScore) VALUES ('Alia', 'F', 15, 'A', 90, 92, 95), ('Bob', 'M', 16, 'C', 55, 63, 67), ('Carol','F', 16, 'B', 72, 75, 78), ('Danial', 'M', 17, 'A', 88, 85, 89), ('Elsa', 'F', 17, 'C', 60, 65, 70), ('Farah', 'F', 16, 'B', 78, 80, 83), ('George', 'M', 17, 'A', 90, 89, 93), ('Harry', 'M', 15, 'C', 65, 69, 74), ('Ishan', 'M', 17, 'A', 89, 92, 90), ('Jenny', 'F', 15, 'B', 78, 80, 84);
+SELECT * FROM Students;
+SELECT AVG(MathScore) AS AvgMathScore, AVG(ScienceScore) AS AvgScienceScore, AVG(EnglishScore) AS AvgEnglishScore FROM Students;
+SELECT Name, (MathScore + ScienceScore + EnglishScore) AS TotalScore FROM Students Order By TotalScore DESC LIMIT 1;
+SELECT Grade, COUNT(*) AS StudentCount FROM Students GROUP BY Grade;
+SELECT Gender, AVG(MathScore) AS AvgMathScore, AVG(ScienceScore) AS AvgScienceScore, AVG(EnglishScore) AS AvgEnglishScore FROM Students GROUP BY Gender;
+SELECT Name, MathScore FROM Students WHERE MathScore > 80;
+UPDATE Students SET Grade = 'A' WHERE StudentID = 1;
+SELECT * FROM Students WHERE StudentID = 1;
+SELECT * FROM Students;
